@@ -1,10 +1,11 @@
 *.class
 
 # Package Files #
-*.jar
+#*.jar#
 *.war
 *.ear
 
 
 # Eclipse Junk #
 .metadata
+bin
