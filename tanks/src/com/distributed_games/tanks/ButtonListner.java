@@ -28,7 +28,7 @@ public class ButtonListner extends ClickListener{
 			
 		case "Physics":
 			
-			game.setScreen(new Physics());
+			game.setScreen(new Physics(game));
 			menu.dispose();
 			break;
 		case "Raining":

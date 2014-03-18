@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
 
 public class Tank {
 	 public Texture image;
@@ -12,6 +13,7 @@ public class Tank {
 	 private Vector3 gunVector;
 	 private Vector3 center;
 	 public float gunLength=40;
+	 public Body pBody;
 	 
 	 public Color color = Color.WHITE;
 	 
@@ -23,7 +25,7 @@ public class Tank {
 	 
 	 
 	 public Vector3 calcCenter(){
-		 center = new Vector3(body.x+body.width/2,body.y+body.height/2,0);
+		 center = new Vector3(body.x+body.width/2.f,body.y+body.height/2.f,0);
 		 return new Vector3(center);
 		
 	 }

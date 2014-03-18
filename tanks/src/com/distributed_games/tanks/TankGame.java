@@ -19,10 +19,10 @@ import com.badlogic.gdx.utils.Array;
 import com.distributed_games.helper.helper;
 
 public class TankGame implements Screen {
-    final Tanks game;
+	protected final Tanks game;
     float physicStepSize = 0.1f;
-    Array<Tank> tanks;
-    Array<Weapon> weapons;
+    protected Array<Tank> tanks;
+    protected Array<Weapon> weapons;
     Texture tank1img, tank2img;
     Rectangle tank1,tank2;
     Texture dropImage;
@@ -30,13 +30,13 @@ public class TankGame implements Screen {
     Sound dropSound;
     Sound explosion;
     Music rainMusic;
-    OrthographicCamera camera;
+   protected OrthographicCamera camera;
     Rectangle bucket;
     Array<Rectangle> raindrops;
     long lastDropTime;
     int dropsGathered;
-    final int width=800;
-    final int height=480;
+    protected int width=800;
+    protected int height=480;
     final int tankWidth=30;
     final int tankHeight=30;
     long deltaTime;
@@ -95,7 +95,7 @@ public class TankGame implements Screen {
 
         // create the camera and the SpriteBatch
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, width, height);
 
 //        // create a Rectangle to logically represent the bucket
 //        bucket = new Rectangle();

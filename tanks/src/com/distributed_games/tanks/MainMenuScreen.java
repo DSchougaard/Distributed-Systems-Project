@@ -65,10 +65,11 @@ public class MainMenuScreen implements Screen {
         
         play3 =new TextButton("Physics", textButtonstyle);
         play3.addListener(new ButtonListner(game, this, "Physics"));
-
-        table.add(play);
+        
+        
+        table.add(play);;
         table.row();
-        table.add(play2);
+        table.add(play2);;
         table.add(play3);
         table.debug();
         stage.addActor(table);
