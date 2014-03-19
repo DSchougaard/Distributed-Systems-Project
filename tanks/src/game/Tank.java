@@ -2,6 +2,7 @@ package game;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -14,7 +15,7 @@ public class Tank {
 	 private Vector3 center;
 	 public float gunLength=40;
 	 public Body pBody;
-	 
+	 public Sprite sprite;
 	 public Color color = Color.WHITE;
 	 
 	 

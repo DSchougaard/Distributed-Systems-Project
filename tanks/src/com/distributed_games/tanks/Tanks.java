@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Tanks extends Game {
-	protected SpriteBatch batch;
+	public SpriteBatch batch;
 	protected float ScreenWidth=0;
 	protected float ScreenHeight=0;
 

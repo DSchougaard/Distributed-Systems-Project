@@ -1,14 +1,16 @@
 package game;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Body;
 
 public class Weapon {
 	float initX;
 	float initY;
 	float time=0;
 	public Circle body;
+	public Body pBody;
 	float damage;
 	Vector3 force;
 	public Color color= Color.MAGENTA;
