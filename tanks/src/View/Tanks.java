@@ -11,8 +11,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Tanks extends Game {
 	public SpriteBatch batch;
-	protected float ScreenWidth=0;
-	protected float ScreenHeight=0;
 
     public BitmapFont font;
 	// constant useful for logging

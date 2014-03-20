@@ -1,17 +1,17 @@
 package View;
 
 import Control.Game.MyInputProcessor;
-import Model.Game.Tank;
 import Model.Game.Physics;
+import Model.Game.Tank;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
 public class Game implements Screen{
@@ -22,6 +22,7 @@ public class Game implements Screen{
 	Box2DDebugRenderer debugRenderer;
 	ShapeRenderer shapeRenderer;
 	Physics physics;
+	Music rainMusic;
 	
 	public Game(final Tanks game, Physics physics){
 		this.physics=physics;
@@ -33,8 +34,12 @@ public class Game implements Screen{
 		
 		
 		
-		Gdx.input.setInputProcessor(new MyInputProcessor(physics.movementVector));
+		Gdx.input.setInputProcessor(new MyInputProcessor(camera,physics));
 		debugRenderer = new Box2DDebugRenderer();
+		
+		
+		rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+        rainMusic.setLooping(true);
 	}
 	@Override
 	public void render(float delta) {
@@ -62,19 +67,10 @@ public class Game implements Screen{
 	
 		Gdx.gl20.glLineWidth(1);
 	
-		physics.step(delta);
-		//user input
-		if (Gdx.input.isTouched()) {
-			Vector3 touchPos = new Vector3();
-			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-			camera.unproject(touchPos);
-			for (Tank tank : physics.tanks) {
-				physics.createWeapon(tank, touchPos);
-
-			}
-		}
+		
 
 		debugRenderer.render(physics.world, camera.combined);
+		physics.step(delta);
 		
 	}
 
@@ -86,8 +82,7 @@ public class Game implements Screen{
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-		
+		rainMusic.play();
 	}
 
 	@Override
@@ -110,7 +105,7 @@ public class Game implements Screen{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		rainMusic.dispose();
 		
 	}
 

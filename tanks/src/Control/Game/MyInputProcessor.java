@@ -1,15 +1,19 @@
 package Control.Game;
-import com.badlogic.gdx.InputProcessor;
+import Model.Game.Tank;
+import Model.Game.Physics;
+
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Vector3;
 
 public class MyInputProcessor implements InputProcessor {
 
-	Vector2 movementVector;
-	
-	public MyInputProcessor(Vector2 movementVector){
-		
-		this.movementVector=movementVector;
+	Physics physics;
+	OrthographicCamera camera;
+	public MyInputProcessor(OrthographicCamera camera, Physics physics){
+		this.camera=camera;
+		this.physics=physics;
 	}
 		
 	@Override
@@ -27,7 +31,15 @@ public class MyInputProcessor implements InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
-		return false;
+		Vector3 touchPos = new Vector3();
+		touchPos.set(screenX, screenY, 0);
+		camera.unproject(touchPos);
+		for (Tank tank : physics.tanks) {
+			physics.createWeapon(tank, touchPos);
+
+		}
+		System.out.println(screenX+"."+screenY);
+		return true;
 	}
 
 	@Override
@@ -45,7 +57,7 @@ public class MyInputProcessor implements InputProcessor {
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
-		movementVector.x=0;
+		physics.movementVector.x=0;
 		return true;
 	}
 
@@ -61,11 +73,11 @@ public class MyInputProcessor implements InputProcessor {
 		switch (keycode) {
 		case Keys.D:
 
-			movementVector.x=500;
+			physics.movementVector.x=500;
 			break;
 		case Keys.A:
 
-			movementVector.x=-500;
+			physics.movementVector.x=-500;
 			break;
 
 		default:
