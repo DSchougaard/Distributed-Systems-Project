@@ -1,4 +1,4 @@
-package com.distributed_games.helper;
+package com.distributed_games.tanks;
 
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;

@@ -1,10 +1,11 @@
-package com.distributed_games.tanks;
+package Control.Menu;
 
-import game.Physics;
+
+import View.Physics;
+import View.Tanks;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-
 public class ButtonListner extends ClickListener{
 	Tanks game;
 	MainMenuScreen menu;
@@ -22,20 +23,10 @@ public class ButtonListner extends ClickListener{
 		switch (screen) {
 		case "Tanks":
 			
-			game.setScreen(new TankGame(game));
-			menu.dispose();
-			break;
-			
-		case "Physics":
-			
 			game.setScreen(new Physics(game));
 			menu.dispose();
 			break;
-		case "Raining":
-			
-			game.setScreen(new Raining(game));
-			menu.dispose();
-			break;
+
 		default:
 			break;
 		}

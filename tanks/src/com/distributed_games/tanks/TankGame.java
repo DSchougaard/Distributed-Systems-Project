@@ -1,7 +1,9 @@
 package com.distributed_games.tanks;
 
-import game.Tank;
-import game.Weapon;
+
+import Model.Game.Tank;
+import Model.Game.Weapon;
+import View.Tanks;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -16,8 +18,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.distributed_games.helper.helper;
-
 public class TankGame implements Screen {
 	protected final Tanks game;
 	float physicStepSize = 0.1f;

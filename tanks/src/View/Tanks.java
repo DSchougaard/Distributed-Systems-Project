@@ -1,4 +1,6 @@
-package com.distributed_games.tanks;
+package View;
+
+import Control.Menu.MainMenuScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;

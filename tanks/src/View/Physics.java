@@ -1,4 +1,9 @@
-package game;
+package View;
+
+import Control.Game.MyContactListener;
+import Control.Game.MyInputProcessor;
+import Model.Game.Tank;
+import Model.Game.Weapon;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -23,8 +28,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.distributed_games.tanks.MyInputProcessor;
-import com.distributed_games.tanks.Tanks;
+import View.Tanks;
 
 public class Physics implements Screen {
 

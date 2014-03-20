@@ -1,4 +1,4 @@
-package com.distributed_games.tanks;
+package Control.Game;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;

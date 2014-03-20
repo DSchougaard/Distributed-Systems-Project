@@ -1,4 +1,5 @@
-package com.distributed_games.tanks;
+package Control.Menu;
+import View.Tanks;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -60,11 +61,11 @@ public class MainMenuScreen implements Screen {
         play =new TextButton("Tanks", textButtonstyle);
         play.addListener(new ButtonListner(game, this, "Tanks"));
       
-        play2 =new TextButton("Raining", textButtonstyle);  
-        play2.addListener(new ButtonListner(game, this, "Raining"));
-        
-        play3 =new TextButton("Physics", textButtonstyle);
-        play3.addListener(new ButtonListner(game, this, "Physics"));
+//        play2 =new TextButton("Raining", textButtonstyle);  
+//        play2.addListener(new ButtonListner(game, this, "Raining"));
+//        
+//        play3 =new TextButton("Physics", textButtonstyle);
+//        play3.addListener(new ButtonListner(game, this, "Physics"));
         
         
         table.add(play);;

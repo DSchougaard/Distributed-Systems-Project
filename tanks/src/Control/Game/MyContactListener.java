@@ -1,12 +1,14 @@
-package game;
+package Control.Game;
+import Model.Game.Tank;
+import Model.Game.Weapon;
+import View.Tanks;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.distributed_games.tanks.Tanks;
-
 public class MyContactListener implements ContactListener {
 
 	@Override
