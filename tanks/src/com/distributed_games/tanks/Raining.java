@@ -2,6 +2,8 @@ package com.distributed_games.tanks;
 
 import java.util.Iterator;
 
+import View.Tanks;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -16,7 +18,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
-import View.Tanks;
 public class Raining implements Screen {
     final Tanks game;
 

@@ -10,37 +10,31 @@ import com.badlogic.gdx.physics.box2d.Body;
 public class Tank {
 	 public Texture image;
 	 public Rectangle body;
-	 public Vector3 position;
 	 private Vector3 gunVector;
-	 private Vector3 center;
 	 public float gunLength=40;
 	 public Body pBody;
 	 public Sprite sprite;
 	 public Color color = Color.WHITE;
 	 
+	 float startPosX=0;
 	 
-	 public Tank() {
-		 
+	 
+	 public Tank(float startPosX) {
+		 this.startPosX=startPosX;
 		// TODO Auto-generated constructor stub
 	}
 	 
-	 
-	 public Vector3 calcCenter(){
-		 center = new Vector3(body.x+body.width/2.f,body.y+body.height/2.f,0);
-		 return new Vector3(center);
-		
-	 }
-	 
+
 	 public void calcGunVector(Vector3 coordinates){
 
-		 gunVector=  new Vector3((new Vector3(coordinates)).sub(calcCenter()).nor().scl(gunLength));
+		 gunVector=  new Vector3((new Vector3(coordinates)).sub(getCenter()).nor().scl(gunLength));
 	 }
 	 public Vector3 getGunVector(){
 		 return new Vector3(gunVector);
 	 }
 
 	 public Vector3 getCenter(){
-		 return new Vector3(center);
+		 return new Vector3(pBody.getPosition().x,pBody.getPosition().y,0);
 	 }
 	 
 	

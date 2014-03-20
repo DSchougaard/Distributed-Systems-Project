@@ -1,5 +1,6 @@
-package View;
+package com.distributed_games.tanks;
 
+import View.Tanks;
 import Control.Game.MyContactListener;
 import Control.Game.MyInputProcessor;
 import Model.Game.Tank;
@@ -28,17 +29,14 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import View.Tanks;
 
-public class Physics implements Screen {
+public class mixPhysics implements Screen {
 
 	World world = new World(new Vector2(0, -100), true);  
 	Box2DDebugRenderer debugRenderer;  
 	static final float BOX_STEP=1/60f;  
 	static final int BOX_VELOCITY_ITERATIONS=8;  
-	static final int BOX_POSITION_ITERATIONS=3;
-	//    static final float WORLD_TO_BOX=0.01f;  
-	//    static final float BOX_WORLD_TO=100f;  
+	static final int BOX_POSITION_ITERATIONS=3; 
 	Vector2 movementVector= new Vector2();
 	protected int width=80;
 	protected int height=48;
@@ -50,7 +48,7 @@ public class Physics implements Screen {
 	Tanks game;
 
 
-	public Physics(final Tanks game){
+	public mixPhysics(final Tanks game){
 		this.game=game;
 		shapeRenderer=new ShapeRenderer();
 		// create the camera and the SpriteBatch
@@ -94,9 +92,9 @@ public class Physics implements Screen {
 
 
 		tanks = new Array<Tank>();
-		Tank tank1 = new Tank();
+		Tank tank1 = new Tank(0);
 		tanks.add(tank1);
-		Tank tank2 = new Tank();
+		Tank tank2 = new Tank(0);
 		tanks.add(tank2);
 		// load the images for the tanks, 30x30 pixels each
 		tank1.sprite = new Sprite(new Texture(Gdx.files.internal("img/tank1.png")));
@@ -126,14 +124,12 @@ public class Physics implements Screen {
 			tank.color=Color.BLACK;
 
 			
-			//gun
-			tank.gunLength=4;
-			tank.calcGunVector(center);
+
 			
 			//physic body
 			BodyDef bodyDef2 = new BodyDef();  
 			bodyDef2.type = BodyType.DynamicBody;  
-			bodyDef2.position.set(tank.calcCenter().x,tank.getCenter().y);  
+			bodyDef2.position.set(tank.getCenter().x,tank.getCenter().y);  
 			tank.pBody= world.createBody(bodyDef2);
 			tank.pBody.setUserData(tank);
 			PolygonShape dynamicBox = new PolygonShape();  
@@ -144,7 +140,9 @@ public class Physics implements Screen {
 			fixtureDef.friction = 0.75f;  
 			fixtureDef.restitution = 0.1f;  
 			tank.pBody.createFixture(fixtureDef);
-
+			//gun
+			tank.gunLength=4;
+			tank.calcGunVector(center);
 		}
 
 	}
@@ -210,7 +208,7 @@ public class Physics implements Screen {
 
 			shapeRenderer.begin(ShapeType.Line);
 			shapeRenderer.setColor(tank.color);
-			shapeRenderer.line(tank.calcCenter(),tank.getCenter().add(tank.getGunVector()));
+			shapeRenderer.line(tank.getCenter(),tank.getCenter().add(tank.getGunVector()));
 			shapeRenderer.end();
 
 		}

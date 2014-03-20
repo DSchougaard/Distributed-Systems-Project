@@ -1,7 +1,7 @@
 package Control.Menu;
 
-
-import View.Physics;
+import Model.Game.Physics;
+import View.Game;
 import View.Tanks;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -22,8 +22,8 @@ public class ButtonListner extends ClickListener{
 		
 		switch (screen) {
 		case "Tanks":
-			
-			game.setScreen(new Physics(game));
+			Physics physics= new Physics();
+			game.setScreen(new Game(game, physics));
 			menu.dispose();
 			break;
 

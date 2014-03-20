@@ -1,7 +1,7 @@
 package Control.Game;
+import View.Tanks;
 import Model.Game.Tank;
 import Model.Game.Weapon;
-import View.Tanks;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Body;

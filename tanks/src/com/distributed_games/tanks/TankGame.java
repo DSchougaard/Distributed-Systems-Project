@@ -1,9 +1,9 @@
 package com.distributed_games.tanks;
 
 
+import View.Tanks;
 import Model.Game.Tank;
 import Model.Game.Weapon;
-import View.Tanks;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -51,9 +51,9 @@ public class TankGame implements Screen {
 		weapons=new Array<Weapon>(); 
 
 		tanks = new Array<Tank>();
-		Tank tank1 = new Tank();
+		Tank tank1 = new Tank(0);
 		tanks.add(tank1);
-		Tank tank2 = new Tank();
+		Tank tank2 = new Tank(0);
 		tanks.add(tank2);
 		// load the images for the tanks, 30x30 pixels each
 		tank1.image = new Texture(Gdx.files.internal("img/tank1.png"));
@@ -234,7 +234,7 @@ public class TankGame implements Screen {
 
 			shapeRenderer.begin(ShapeType.Line);
 			shapeRenderer.setColor(tank.color);
-			shapeRenderer.line(tank.calcCenter(),tank.getCenter().add(tank.getGunVector()));
+			shapeRenderer.line(tank.getCenter(),tank.getCenter().add(tank.getGunVector()));
 			shapeRenderer.end();
 
 		}
