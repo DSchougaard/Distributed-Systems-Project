@@ -71,5 +71,5 @@ public class Tanks extends Game {
 		Gdx.app.log( Tanks.LOG, "Resuming game" );
 	}
 
-
+	
 }

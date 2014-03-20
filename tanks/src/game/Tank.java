@@ -42,4 +42,9 @@ public class Tank {
 	 public Vector3 getCenter(){
 		 return new Vector3(center);
 	 }
+	 
+	
+	public void dispose() {
+		sprite.getTexture().dispose();
+	}
 }
